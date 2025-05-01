@@ -40,7 +40,7 @@ const AsideDetector: React.FC = () => {
       {isMobile && ( //Ha mobil módban van az oldal
         <>
           <div
-            className={`fixed flex z-10 items-center top-4 left-4 bg-gray-100 drop-shadow-md justify-center w-14 h-14  cursor-pointer rounded-lg text-5xl hover:bg-gray-300 shadow-md ${
+            className={`fixed flex z-20 items-center top-4 left-4 bg-gray-100 drop-shadow-md justify-center w-14 h-14  cursor-pointer rounded-lg text-5xl hover:bg-gray-300 shadow-md ${
               !isHidden ? "translate-x-72 rotate-90" : "translate-x-0"
             } transition-all ease-out duration-200`}
             onClick={toggleSidebar} // toggleSidebar hívása
