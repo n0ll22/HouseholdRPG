@@ -213,8 +213,7 @@ router.post("/restorePassword", async (req, res) => {
     await user.save();
 
     // A visszaállító linket tartalmazó email elküldése
-    const resetLink = `${process.env.DEPLOYED_URL}/reset-password/${token}`;
-    //const resetLink = `${process.env.CLIENT_URL}/reactivate-account/${token}`;
+    const resetLink = `${process.env.CLIENT_URL}/reactivate-account/${token}`;
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -263,9 +262,8 @@ router.post("/restoreAccount", async (req, res) => {
 
     await user.save();
 
-    // Aktiváló linket tartalmazó email elküldése
-    const resetLink = `${process.env.DEPLOYED_URL}/reactivate-account/${token}`;
-    //const resetLink = `${process.env.CLIENT_URL}/reactivate-account/${token}`;
+    // Aktiváló linket tartalmazó email elküldés
+    const resetLink = `${process.env.CLIENT_URL}/reactivate-account/${token}`;
 
     const transporter = nodemailer.createTransport({
       service: "gmail",

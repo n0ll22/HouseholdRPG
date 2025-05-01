@@ -10,7 +10,7 @@ require("dotenv").config();
 const socket = (server) => {
   const io = new Server(server, {
     cors: {
-      origin: [process.env.DEPLOYED_URL, process.env.CLIENT_URL], // vagy írd be ide a konkrét címet
+      origin: [process.env.CLIENT_URL], // vagy írd be ide a konkrét címet
       methods: ["GET", "POST", "PUT", "DELETE"],
       credentials: true,
     },

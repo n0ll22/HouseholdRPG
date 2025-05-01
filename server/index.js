@@ -22,7 +22,7 @@ const server = http.createServer(app); // HTTP szerver létrehozása az Express 
 // Middleware-ek beállítása
 app.use(
   cors({
-    origin: [process.env.DEPLOYED_URL, process.env.CLIENT_URL],
+    origin: [process.env.CLIENT_URL],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
     optionsSuccessStatus: 200,
