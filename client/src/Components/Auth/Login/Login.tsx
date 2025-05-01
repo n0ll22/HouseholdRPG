@@ -117,19 +117,19 @@ const Login: React.FC = () => {
               <p className="text-red-700 mb-4 flex flex-col">
                 <span>{message} </span>
                 {message.includes("deleted") ? (
-                  <button
-                    onClick={() => navigate("/restoreAccount")}
+                  <Link
                     className="text-left underline text-black"
+                    to={"/restoreAccount"}
                   >
                     Click here to restore it!
-                  </button>
+                  </Link>
                 ) : message.includes("password") ? (
-                  <button
-                    onClick={() => navigate("/restorePassword")}
+                  <Link
+                    to={"/restorePassword"}
                     className="text-left underline text-black"
                   >
                     Forgot password?
-                  </button>
+                  </Link>
                 ) : (
                   message
                 )}
