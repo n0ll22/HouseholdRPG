@@ -10,8 +10,8 @@ import ChatMessages from "./ChatMessages"; // Chat üzenetek kompnens
 import { FaXmark } from "react-icons/fa6"; // react ikon
 import { FaAngleUp } from "react-icons/fa"; //react ikon
 import { useNavigate } from "react-router-dom";
-import socket from "../socket";
-import { Api } from "../../QueryFunctions"; //API hívások
+import socket from "../../Tools/socket";
+import { Api } from "../../Tools/QueryFunctions"; //API hívások
 
 // ----- Rövid magyarázat -----
 /**

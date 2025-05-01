@@ -1,7 +1,7 @@
 const Friendship = require("../models/friendshipModel");
 const auth = require("../middleware/auth");
 const User = require("../models/userModel");
-const queryOptions = require("../queryOptions");
+const queryOptions = require("../middleware/queryOptions");
 const router = require("express").Router();
 const mongoose = require("mongoose");
 

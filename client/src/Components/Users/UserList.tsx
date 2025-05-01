@@ -1,7 +1,7 @@
 import React from "react";
 import { QueryProps, UserDataProp, UserProp } from "../../Tools/types.ts";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import { SetQuery } from "../../QueryFunctions.tsx";
+import { SetQuery } from "../../Tools/QueryFunctions.tsx";
 
 //Ez a komponens az összes létező felhasználó megjelenítéséért felel
 //Kattintással meg lehet tekinteni részletesebben a kiválasztott user profilját

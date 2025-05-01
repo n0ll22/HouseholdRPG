@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FriendshipProp } from "../../Tools/types";
 import { FaCheck } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
-import socket from "../socket";
+import socket from "../../Tools/socket";
 //Átadott értékek típusai
 
 interface Props {

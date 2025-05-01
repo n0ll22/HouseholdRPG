@@ -18,7 +18,7 @@ import UserList from "../Components/Users/UserList";
 import FriendList from "../Components/Users/FriendList";
 import Chat from "../Components/Chat/Chat";
 import UserProfile from "../Components/Profile/Profile/UserProfile";
-import TaskTutorial from "../Components/TaskManager/TaskTutorial";
+import TaskTutorial from "../Components/TaskManager/ListTask/TaskTutorial";
 import Options from "../Components/Profile/Options/Options";
 import RestoreAccount from "../Components/Auth/Restore/RestoreAccount";
 import RestorePassword from "../Components/Auth/Restore/RestorePassword";

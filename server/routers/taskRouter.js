@@ -3,7 +3,7 @@ const auth = require("../middleware/auth");
 const Task = require("../models/taskModel");
 const User = require("../models/userModel");
 const Process = require("../models/processModel");
-const queryOptions = require("../queryOptions");
+const queryOptions = require("../middleware/queryOptions");
 const jwt = require("jsonwebtoken");
 
 async function authAdmin(req, res, next) {

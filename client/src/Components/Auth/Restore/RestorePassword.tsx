@@ -1,5 +1,5 @@
 import React, { FormEvent, useState } from "react";
-import { Api } from "../../../QueryFunctions"; //Api hívások
+import { Api } from "../../../Tools/QueryFunctions"; //Api hívások
 
 /* 
 Rövid magyarázat:

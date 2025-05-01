@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { Api } from "../../QueryFunctions"; //API hívások
+import { Api } from "../../../Tools/QueryFunctions"; //API hívások
 
 /**
 Rövid magyarázat:

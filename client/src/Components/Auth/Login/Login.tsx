@@ -3,7 +3,7 @@ import React, { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginData } from "../../../Tools/types"; //Típus import
 import { useAuth } from "../AuthContext/useAuth"; //Bejelentkezési állapot import
-import { Api } from "../../../QueryFunctions"; // API hívások
+import { Api } from "../../../Tools/QueryFunctions"; // API hívások
 
 // ----- Rövid magyarázat ------
 /* 

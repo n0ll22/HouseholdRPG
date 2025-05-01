@@ -5,8 +5,8 @@ import { useAuth } from "../../Auth/AuthContext/useAuth"; //Bejelentkezett felha
 import BlockedUsers from "./BlockedUsers"; //Letiltott felhasználók komponens
 import ChangeEmail from "./ChangeEmail"; //Email megváltoztatás komponens
 import ChangePassword from "./ChangePassword"; // Jelszó megváltoztatás komponens
-import { Api } from "../../../QueryFunctions"; //API hívások
-import socket from "../../socket"; //Websocket
+import { Api } from "../../../Tools/QueryFunctions"; //API hívások
+import socket from "../../../Tools/socket"; //Websocket
 import { useUser } from "../../Auth/AuthContext/UserContext"; //
 import { useNotification } from "../../Notification/Notification";
 

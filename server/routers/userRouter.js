@@ -2,7 +2,7 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
-const queryOptions = require("../queryOptions");
+const queryOptions = require("../middleware/queryOptions");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 

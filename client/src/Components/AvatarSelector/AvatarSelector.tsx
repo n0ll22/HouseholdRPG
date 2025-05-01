@@ -1,6 +1,6 @@
 //Importálások
 import React, { useState } from "react";
-import pfps from "../../pfps.json";
+import pfps from "../../Tools/pfps.json";
 
 /*
 Rövid magyarázat:

@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { FriendshipProp, QueryProps, UserProp } from "../../Tools/types.ts";
+import { FriendshipProp, QueryProps, UserProp } from "../../Tools/types";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import FriendRequest from "./FriendRequest.tsx";
-import { SetQuery } from "../../QueryFunctions.tsx";
-import socket from "../socket.ts";
+import FriendRequest from "./FriendRequest";
+import { SetQuery } from "../../Tools/QueryFunctions";
+import socket from "../../Tools/socket";
 import { FaTrash } from "react-icons/fa";
 import { ImBlocked } from "react-icons/im";
-import { useNotification } from "../Notification/Notification.tsx";
+import { useNotification } from "../Notification/Notification";
 
 //Ez a react komponens a barátok listájának megjelenítéséért felelős
 //Van lehetőség itt meglévő barátokat törölni, és blokkolni

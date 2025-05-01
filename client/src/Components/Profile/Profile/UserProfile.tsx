@@ -4,10 +4,10 @@ import { FriendshipProp, UserProp } from "../../../Tools/types";
 import PlayerAvatar from "../Avatar/PlayerAvatar";
 import PlayerBanner from "../Banner/PlayerBanner";
 import PlayerUsername from "../Username/PlayerUsername";
-import socket from "../../socket";
+import socket from "../../../Tools/socket";
 import { useNotification } from "../../Notification/Notification";
 import { useUser } from "../../Auth/AuthContext/UserContext";
-import { Api } from "../../../QueryFunctions";
+import { Api } from "../../../Tools/QueryFunctions";
 
 const UserProfile: React.FC = () => {
   const { id } = useParams();

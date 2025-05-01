@@ -9,7 +9,7 @@ import { Link, useOutletContext, useParams } from "react-router-dom";
 import { apiUrl, TaskProp } from "../../../Tools/types";
 import { FaPlus } from "react-icons/fa";
 import { HMStoSeconds, secondsToObject } from "../../../Tools/timeConversion";
-import { Api } from "../../../QueryFunctions";
+import { Api } from "../../../Tools/QueryFunctions";
 import useGet from "../../../Hooks/useGet";
 import { useNotification } from "../../Notification/Notification";
 

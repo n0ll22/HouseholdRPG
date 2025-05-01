@@ -3,7 +3,7 @@ import React, { Dispatch, FormEvent, SetStateAction, useState } from "react";
 import { FaCheck } from "react-icons/fa6"; // Pipás ikon az új chat létrehozásához
 import { ChatProp, FriendshipProp, UserProp } from "../../Tools/types"; // Típusok importálása
 import NewChatList from "./NewChatList"; // Részelem: új chathez tartozó ismerősök listája
-import socket from "../socket";
+import socket from "../../Tools/socket";
 
 // ----- Átadott változók típusa -----
 type Props = {

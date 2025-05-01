@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import useGet from "../../Hooks/useGet";
-import { apiUrl, TaskProp } from "../../Tools/types";
+import useGet from "../../../Hooks/useGet";
+import { apiUrl, TaskProp } from "../../../Tools/types";
 
 //Ez a komponens a házimunka feladat segédanyagát jeleníti meg
 const TaskTutorial = () => {

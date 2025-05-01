@@ -7,7 +7,7 @@ import {
   Participant,
   UserProp,
 } from "../../Tools/types";
-import socket from "../socket";
+import socket from "../../Tools/socket";
 
 // ----- Rövid magyarázat -----
 /* Ez a React (Array) Function Component a létező chat szobák megjelenítéséért felel.

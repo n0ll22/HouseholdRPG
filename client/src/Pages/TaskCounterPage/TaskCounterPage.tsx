@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import useGet from "../../Hooks/useGet";
-import levels from "../../lookuplvl.json";
+import levels from "../../Tools/lookuplvl.json";
 import TaskComplete from "../../Components/TaskCounter/TaskCounter";
 import {
   apiUrl,
@@ -13,7 +13,7 @@ import {
 
 import HUD from "../../Components/TaskCounter/HUD";
 import { useUser } from "../../Components/Auth/AuthContext/UserContext";
-import { Api } from "../../QueryFunctions";
+import { Api } from "../../Tools/QueryFunctions";
 import { useNotification } from "../../Components/Notification/Notification";
 import { secondsToString } from "../../Tools/timeConversion";
 

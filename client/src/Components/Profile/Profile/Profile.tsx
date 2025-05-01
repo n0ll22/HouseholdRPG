@@ -7,7 +7,7 @@ import UserAvatar from "../Avatar/UserAvatar";
 import { UserProp } from "../../../Tools/types";
 import UserUsername from "../Username/UserUsername";
 import UserDescription from "../Description/UserDescription";
-import { Api } from "../../../QueryFunctions";
+import { Api } from "../../../Tools/QueryFunctions";
 
 export interface EditUserProp {
   username: boolean;

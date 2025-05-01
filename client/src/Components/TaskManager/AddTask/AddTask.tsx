@@ -3,7 +3,7 @@ import { useNotification } from "../../Notification/Notification";
 import { HMStoSeconds } from "../../../Tools/timeConversion";
 import { TaskProp } from "../../../Tools/types";
 import { FaPlus } from "react-icons/fa";
-import { Api } from "../../../QueryFunctions";
+import { Api } from "../../../Tools/QueryFunctions";
 import { useOutletContext } from "react-router-dom";
 
 //Ez a komponens új házimunka hozzáadását biztosítja az admin számára

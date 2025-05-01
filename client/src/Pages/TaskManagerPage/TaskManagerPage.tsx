@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
 import { QueryProps, TaskProp } from "../../Tools/types";
 import { useUser } from "../../Components/Auth/AuthContext/UserContext";
-import { Api } from "../../QueryFunctions";
+import { Api } from "../../Tools/QueryFunctions";
 
 /* Ez a react komponens az admin házimunka kezelő aloldal főkomponense
  * Itt található a legtöbb API kérés, ami a házimunkák adatait kéri le.

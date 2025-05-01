@@ -8,7 +8,7 @@ import {
   UserProp, //Típusok  importjai
 } from "../../Tools/types";
 import { Link, Outlet } from "react-router-dom";
-import { Api } from "../../QueryFunctions";
+import { Api } from "../../Tools/QueryFunctions";
 import { useNotification } from "../../Components/Notification/Notification";
 
 /*Ez az oldal a profil aloldal fő komponense. Ez tartja össze az összes olyan

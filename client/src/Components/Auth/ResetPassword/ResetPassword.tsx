@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom"; // Importing useNavigate and useParams
-import { Api } from "../../../QueryFunctions"; //API hívások
+import { Api } from "../../../Tools/QueryFunctions"; //API hívások
 
 /*
 Rövid magyarázat:

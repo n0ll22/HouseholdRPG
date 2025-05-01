@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
 import { QueryProps, UserProp } from "../../Tools/types";
-import socket from "../../Components/socket";
+import socket from "../../Tools/socket";
 import { useUser } from "../../Components/Auth/AuthContext/UserContext";
-import { Api } from "../../QueryFunctions";
+import { Api } from "../../Tools/QueryFunctions";
 
 /*  
     Ez a react komponens felel az összes létező felhasználó megjelenítésének főkomponensének

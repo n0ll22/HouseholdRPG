@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
 import { TaskProp, TaskDataProp } from "../../../Tools/types";
 import { secondsToString } from "../../../Tools/timeConversion";
-import { Api } from "../../../QueryFunctions";
+import { Api } from "../../../Tools/QueryFunctions";
 
 //Ez a react komponens a meglévő házimunka feladatok szerksztését szolgálja
 //Megjeleníti az összes házimunkát és ki lehet választani melyik feladatot kívánja az admin szerkeszteni vagy törölni

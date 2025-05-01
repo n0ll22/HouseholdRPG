@@ -1,14 +1,14 @@
 // ----- Importálások ------
 import { useEffect, useState, useCallback } from "react";
 import { useOutletContext, useParams } from "react-router-dom";
-import { ChatProp, FriendshipProp, MessageProp } from "../../Tools/types.ts"; //Típusok
+import { ChatProp, FriendshipProp, MessageProp } from "../../Tools/types"; //Típusok
 import ChatRoom from "./ChatRoom"; //chat szoba komponens
 import ChatRoomList from "./ChatRoomList"; // chat szoba lista komponens
-import NewChat from "./NewChat.tsx"; // Új chat komponens
+import NewChat from "./NewChat"; // Új chat komponens
 import { FaUser } from "react-icons/fa6"; // react ikon
-import socket from "../socket";
-import { Api } from "../../QueryFunctions.tsx"; //API hívások
-import { useUser } from "../Auth/AuthContext/UserContext.tsx"; // jelenlegi felhasználó lekérése
+import socket from "../../Tools/socket";
+import { Api } from "../../Tools/QueryFunctions"; //API hívások
+import { useUser } from "../Auth/AuthContext/UserContext"; // jelenlegi felhasználó lekérése
 
 /*
   ------ Rövid magyarázat ------
