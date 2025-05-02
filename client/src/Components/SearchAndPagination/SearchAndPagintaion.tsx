@@ -35,7 +35,7 @@ const SearchAndPagination: React.FC<Props> = ({
     <div
       className={`flex  ${
         pageWidth > 640
-          ? " w-full justify-center items-center "
+          ? " w-full justify-center items-center px-10"
           : "flex-col w-full items-center"
       }  mt-20 `}
     >
