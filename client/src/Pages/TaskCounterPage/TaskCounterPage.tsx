@@ -103,7 +103,7 @@ const TaskCounterPage: React.FC = () => {
   //Aktuális házimunka feladat törlése
   const handleRemoveTask = async (task: TaskProp) => {
     //Adatok ellenőrzése
-    if (task && userData && process) {
+    if (task && userData) {
       //törlés a böngésző memóriájából
       localStorage.removeItem("currentTask");
       //Minden változó alaphelyzetbe állítása
@@ -117,8 +117,9 @@ const TaskCounterPage: React.FC = () => {
         setCurrentTasks,
         calculateLevel
       );
-
-      await Api().deleteTaskProcessById(process._id);
+      if (process) {
+        await Api().deleteTaskProcessById(process._id);
+      }
 
       setSelectedTask(null);
       setProcess(null);
@@ -136,6 +137,8 @@ const TaskCounterPage: React.FC = () => {
       setProcess(null);
     }
   };
+
+  console.log(process);
 
   //Szintlépés ellenőrzése, szint kiszámítása
   const calculateLevel = (newExp: number) => {
@@ -211,6 +214,7 @@ const TaskCounterPage: React.FC = () => {
           );
           //folyamat törlése
           Api().deleteTaskProcessById(process._id);
+          setProcess(null);
           //folyamat törlése adatbázisból
           localStorage.removeItem("currentTask");
         }
@@ -219,6 +223,12 @@ const TaskCounterPage: React.FC = () => {
       return () => clearInterval(interval);
     }
   }, [selectedTask, process]);
+
+  useEffect(() => {
+    if (process?.progress === 100) {
+      setProcess(null);
+    }
+  }, [process]);
 
   //adatok lekérése első futásnál
   useEffect(() => {

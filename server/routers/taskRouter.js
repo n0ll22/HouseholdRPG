@@ -217,6 +217,8 @@ router.get("/completeProcess/:id", auth, async (req, res) => {
       { new: true } // Az új felhasználó adatokat visszaküldjük
     );
 
+    await Process.findByIdAndDelete(id);
+
     // Ha nem találunk felhasználót, hibaüzenet küldése
     if (!user) {
       return res.status(404).json({ error: "Couldn't find user!" });

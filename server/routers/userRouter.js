@@ -478,7 +478,7 @@ router.put("/removeTaskToday", async (req, res) => {
     const { user_id, task_id, exp } = req.body; // Felhasználó és feladat azonosítók, valamint az XP
     const { inProgress } = req.query; // Kérdés, hogy a feladat folyamatban van-e
 
-    console.log(req.body);
+    console.log(req.body, inProgress);
 
     const user = await User.findById(user_id); // Felhasználó lekérése az adatbázisból
 
