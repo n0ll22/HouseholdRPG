@@ -70,7 +70,7 @@ const Sidebar: React.FC<Props> = ({ setInteracted }) => {
               Complete Task
             </h3>
           </Link>
-          {user?.isAdmin && (
+          {user?.isAdmin && user ? (
             <Link to="/taskManager/list">
               <h3
                 className={`text-lg px-4 py-2 hover:bg-gray-200 transition ${
@@ -79,6 +79,17 @@ const Sidebar: React.FC<Props> = ({ setInteracted }) => {
                 onClick={() => setInteracted(true)}
               >
                 Task Manager
+              </h3>
+            </Link>
+          ) : (
+            <Link to="/taskManager/list">
+              <h3
+                className={`text-lg px-4 py-2 hover:bg-gray-200 transition ${
+                  location.pathname.includes("taskManager") ? "font-bold" : ""
+                }`}
+                onClick={() => setInteracted(true)}
+              >
+                All Tasks
               </h3>
             </Link>
           )}
@@ -114,25 +125,6 @@ const Sidebar: React.FC<Props> = ({ setInteracted }) => {
               Chat
             </h3>
           </Link>
-
-          {/*
-                        <ul className="px-4 py-10">
-                            <h3 className="text-lg">Documents</h3>
-                            
-                           
-                           
-                            <Link reloadDocument to="/users">
-                                <li
-                                    className={` text-gray-400 hover:bg-gray-200 hover:text-gray-600 transition ${
-                                        location.pathname === "/users"
-                                            ? "font-bold text-gray-600"
-                                            : ""
-                                    }`}
-                                >
-                                    Users
-                                </li>
-                            </Link>
-                        </ul>*/}
           <div className="absolute -z-10 top-0 left-0 h-screen w-full flex items-end justify-center">
             <p
               onClick={handleLogout}

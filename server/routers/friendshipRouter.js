@@ -1,57 +1,9 @@
 const Friendship = require("../models/friendshipModel");
-const auth = require("../middleware/auth");
+const { auth, authAdmin } = require("../middleware/auth");
 const User = require("../models/userModel");
 const queryOptions = require("../middleware/queryOptions");
 const router = require("express").Router();
 const mongoose = require("mongoose");
-
-// Elfogadott barátságok lekérése
-router.get("/getAccepted", auth, async (req, res) => {
-  try {
-    const { friendshipIds } = req.query; // Az elfogadott barátságok ID-jainak lekérése a query paraméterekből
-
-    // Az ID-k alapján lekérjük a barátságokat
-    const result = await Friendship.find({
-      _id: { $in: friendshipIds },
-    }).populate(["senderId", "receiverId"], "username avatar lvl"); // A felhasználói adatok feltöltése
-
-    // Csak az "accepted" státuszú barátságok szűrése
-    const filteredResult = result.filter((r) => r.status === "accepted");
-
-    if (!result) {
-      return res.status(204).send({ message: "No friendship was found!" }); // Ha nincs találat, üres válasz
-    }
-
-    return res.status(200).send(filteredResult); // Az elfogadott barátságok visszaküldése
-  } catch (err) {
-    console.error(err); // Hiba naplózása
-    return res.status(500).send({ message: "Internal Server Error" }); // Szerverhiba válasz
-  }
-});
-
-// Függőben lévő barátságok lekérése
-router.get("/getPending", auth, async (req, res) => {
-  try {
-    const { friendshipIds } = req.query; // Függőben lévő barátságok ID-jainak lekérése
-
-    // Az ID-k alapján lekérjük a barátságokat
-    const result = await Friendship.find({
-      _id: { $in: friendshipIds },
-    }).populate(["senderId", "receiverId"], "username avatar lvl");
-
-    // Csak a "pending" státuszú barátságok szűrése
-    const filteredResult = result.filter((r) => r.status === "pending");
-
-    if (!result) {
-      return res.status(204).send({ message: "No friendship was found!" }); // Ha nincs találat, üres válasz
-    }
-
-    return res.status(200).send(filteredResult); // A függőben lévő barátságok visszaküldése
-  } catch (err) {
-    console.error(err); // Hiba naplózása
-    return res.status(500).send({ message: "Internal Server Error" }); // Szerverhiba válasz
-  }
-});
 
 // Összes barátság lekérése
 router.get("/", auth, async (req, res) => {
@@ -240,12 +192,16 @@ router.post("/getAllFriendshipForUser/:id", auth, async (req, res) => {
       .filter(
         (item) => item !== null && item.otherUser && item.otherUser.username
       ) // Csak az érvényes adatokat tartja meg
-      .filter((f) =>
-        f.otherUser.username
-          .toLowerCase()
-          .includes(queries.search.toLowerCase())
+      .filter(
+        (
+          f //Keresés szűrése
+        ) =>
+          f.otherUser.username
+            .toLowerCase()
+            .includes(queries.search.toLowerCase())
       ) // Keresés a felhasználónevek között
       .sort((a, b) => {
+        //sorrend kezelése
         const comparison = a.otherUser.username
           .toLowerCase()
           .localeCompare(b.otherUser.username.toLowerCase());

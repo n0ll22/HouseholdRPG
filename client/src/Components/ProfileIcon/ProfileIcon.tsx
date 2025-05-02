@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Api } from "../../Tools/QueryFunctions";
+import { useUser } from "../Auth/AuthContext/UserContext";
 
 //Ez a react komponens a profilkép ikon megjelenítéséért felel
 //Kattintásra lenyíl egy menü
@@ -14,9 +16,10 @@ const ProfileIcon: React.FC<Props> = ({ avatar }) => {
   const [profileTab, setProfileTab] = useState<boolean>(false);
   //navigációhoz szükséges hook
   const nav = useNavigate();
+  const user = useUser();
 
   //Profilkép menő megjelenítésének kezelése
-  const handleTab = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleTab = async (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     switch (e.currentTarget.id) {
       case "profile_icon":
         setProfileTab((prev) => !prev);
@@ -28,7 +31,10 @@ const ProfileIcon: React.FC<Props> = ({ avatar }) => {
       case "open_messages":
         nav("/profile/chat");
         return;
-      case "open_notifications":
+      case "logout":
+        await Api().getLogout(user!._id);
+        nav("/");
+        window.location.reload();
         return;
     }
   };
@@ -67,11 +73,11 @@ const ProfileIcon: React.FC<Props> = ({ avatar }) => {
             Messages
           </p>
           <p
-            id="open_notifications"
+            id="logout"
             className="hover:bg-gray-200 p-2 rounded-md"
             onClick={(e) => handleTab(e)}
           >
-            Notifications
+            Logout
           </p>
         </div>
       ) : null}

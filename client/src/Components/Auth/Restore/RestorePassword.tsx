@@ -26,7 +26,7 @@ const RestorePassword: React.FC = () => {
 
   //JSX megjelenítés
   return (
-    <main className="grid grid-cols-2">
+    <main className="grid grid-cols-2 md:flex md:p-2">
       <div className="flex flex-col items-center justify-center h-screen w-full">
         <h1 className="text-6xl mb-20 font-bold">Restoration</h1>
         {/*Email megadása Form-mal. Közzététel során meghívódik a kezelő metódus*/}
@@ -66,7 +66,7 @@ const RestorePassword: React.FC = () => {
         </form>
       </div>
       <div
-        className="bg-center bg-cover h-screen w-full"
+        className="bg-center bg-cover h-screen w-full md:hidden"
         style={{
           backgroundImage: "url(/img/resurrection.png)",
         }}

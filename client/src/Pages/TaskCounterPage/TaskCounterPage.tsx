@@ -133,6 +133,7 @@ const TaskCounterPage: React.FC = () => {
   const handleFinish = async () => {
     if (!selectedTask && userData) {
       await Api().deleteAllTaskToday(userData._id, setCurrentTasks);
+      setProcess(null);
     }
   };
 

@@ -698,7 +698,12 @@ router.put("/deleteAccount/:id", async (req, res) => {
     const { id } = req.params; // Felhasználó azonosítója
 
     // Token törlése a cookie-ból
-    res.cookie("token", "", { httpOnly: true, expires: new Date(0) });
+    res.cookie("token", "", {
+      httpOnly: false,
+      sameSite: "None", // allow cross-site cookie
+      secure: true, // cookie only over HTTPS
+      expires: new Date(0),
+    });
 
     // Felhasználó státuszának "deleted"-re állítása
     await User.findByIdAndUpdate(id, { status: "deleted" });
@@ -759,15 +764,31 @@ router.get("/:id", async (req, res) => {
     const { id } = req.params; // Felhasználó azonosítója
 
     // Felhasználó lekérése az adatbázisból
-    const result = await User.findById(id);
+    const user = await User.findById(id);
 
-    // Ha a felhasználó megtalálható
-    if (result) {
-      return res.status(200).send(result);
+    if (!user) {
+      return res.status(404).status("No user found");
     }
 
-    // Ha a felhasználó nem található
-    return res.status(404).send({ message: "User not found" });
+    const UserDTO = {
+      _id: user._id,
+      email: user.email,
+      username: user.username,
+      exp: user.exp,
+      lvl: user.lvl,
+      taskToday: user.taskToday,
+      avatar: user.avatar,
+      friendships: user.friendships,
+      clan: user.clan,
+      banner: user.banner,
+      description: "",
+      status: user.status,
+      isAdmin: user.isAdmin,
+    };
+
+    // Ha a felhasználó megtalálható
+
+    return res.status(200).send(UserDTO);
   } catch (error) {
     console.error(error);
     return res.status(500).send({ message: "Internal Server Error" });

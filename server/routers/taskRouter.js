@@ -1,30 +1,10 @@
 const router = require("express").Router();
-const auth = require("../middleware/auth");
+const { auth, authAdmin } = require("../middleware/auth");
 const Task = require("../models/taskModel");
 const User = require("../models/userModel");
 const Process = require("../models/processModel");
 const queryOptions = require("../middleware/queryOptions");
 const jwt = require("jsonwebtoken");
-
-async function authAdmin(req, res, next) {
-  try {
-    const token = req.cookies.token;
-    if (!token) return res.status(401).json({ errorMessage: "Unauthorized" });
-
-    const { user } = jwt.verify(token, process.env.JWT_SECRET);
-
-    const findUser = await User.findById(user);
-
-    if (!findUser || findUser.isAdmin === false) {
-      return res.status(401).json({ errorMessage: "Unauthorized" });
-    }
-
-    next();
-  } catch (err) {
-    console.error(err);
-    return res.status(401).json({ errorMessage: "Unauthorized" });
-  }
-}
 
 // Ez a route GET kéréseket kezel, és a lekérdezési paraméterek alapján adja vissza a feladatokat
 router.get("/", auth, async (req, res) => {
@@ -47,7 +27,6 @@ router.get("/", auth, async (req, res) => {
       .skip(skip) // Az első x elemet átugorjuk (lapozás)
       .limit(parseInt(limit)); // A limitált számú elemet lekérjük
 
-    console.log(allTasks);
     if (allTasks.length === 0) {
       return res.json({ setTask: [], error: "No tasks" });
     }

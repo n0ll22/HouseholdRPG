@@ -1,5 +1,5 @@
 const express = require("express");
-const auth = require("../middleware/auth"); // Auth middleware a védelemhez
+const { auth, authAdmin } = require("../middleware/auth"); // Auth middleware a védelemhez
 const Chat = require("../models/chatModel");
 const Message = require("../models/messageModel");
 
@@ -94,6 +94,9 @@ router.post("/messages", auth, async (req, res) => {
       chatId,
       content,
     });
+    if (!newMessage) {
+      return res.status(404).json({error: "Something went wrong!"})
+    }
 
     // A chat legutóbbi üzenetének frissítése
     await Chat.findByIdAndUpdate(chatId, { latest: newMessage._id });

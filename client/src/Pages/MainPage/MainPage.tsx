@@ -45,23 +45,6 @@ const MainPage: React.FC = () => {
             </div>
           </div>
         </Link>
-        <Link to="">
-          <div className="flex flex-col justify-between mx-3 mb-6 w-96 xl:w-64 border rounded-xl hover:bg-gray-200">
-            <h2 className="text-2xl font-bold p-2">Feeling demotivated?</h2>
-            <div className="">
-              <p className="p-2">
-                We know what you need to do to get back on track! Get some
-                motivation with us! ✌️
-              </p>
-              <div
-                className="w-full h-60 bg-cover bg-center rounded-b-lg"
-                style={{
-                  backgroundImage: "url('/img/mining.jpg')",
-                }}
-              ></div>
-            </div>
-          </div>
-        </Link>
       </div>
     </main>
   );
