@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+//Ez a komponens megjeleníti a sütikkel kapcsolatos adatkezelési szabályokat
 const CookiePolicy: React.FC = () => {
   return (
-    <div className="max-w-4xl mx-auto p-6 text-gray-800">
+    <div className="max-w-4xl mx-auto py-20 px-10 text-gray-800">
       <h1 className="text-3xl font-bold mb-4">Cookie Policy</h1>
 
       <p className="mb-4">
@@ -40,14 +40,17 @@ const CookiePolicy: React.FC = () => {
       <a
         className="underline"
         href="https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+        target="_blank"
       >
         GDPR Source
       </a>
 
-      <p className="text-sm text-gray-500 mt-5">Last updated: May 2, 2025</p>
+      <p className="text-sm text-gray-500 mt-5 mb-20">
+        Last updated: May 2, 2025
+      </p>
 
       <Link
-        className="absolute bottom-10 font-bold text-xl"
+        className="fixed bg-white p-2 rounded-lg border bottom-10 font-bold text-xl"
         to="/"
         reloadDocument
       >

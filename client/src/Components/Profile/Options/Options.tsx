@@ -1,5 +1,5 @@
 import React, { FormEvent, useEffect, useState } from "react";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import { FriendshipProp } from "../../../Tools/types"; // Típusok
 import { useAuth } from "../../Auth/AuthContext/useAuth"; //Bejelentkezett felhasználó hitelesítés
 import BlockedUsers from "./BlockedUsers"; //Letiltott felhasználók komponens
@@ -9,6 +9,7 @@ import { Api } from "../../../Tools/QueryFunctions"; //API hívások
 import socket from "../../../Tools/socket"; //Websocket
 import { useUser } from "../../Auth/AuthContext/UserContext"; //
 import { useNotification } from "../../Notification/Notification";
+import BugReportForm from "./BugReportForm";
 
 // React Komponens
 
@@ -166,18 +167,22 @@ const Options: React.FC = (): JSX.Element => {
               handleUnblockUser={handleUnblockUser}
               loggedInUserId={user._id}
             />
-
             <ChangeEmail // Új email komponens
               email={newEmail}
               setEmail={setNewEmail}
               handleNewEmail={handleNewEmail}
             />
-
             <ChangePassword // új jelszó komponens
               password={newPassword}
               setPassword={setNewPassword}
               handleNewPassword={handleNewPassword}
             />
+            <BugReportForm />
+            <div className="py-10">
+              <Link className="underline" to={"/cookie"}>
+                Read the Cookie Poilcy here!
+              </Link>
+            </div>
           </div>
         )}
         <div className="py-10">

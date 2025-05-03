@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const cp = require("cookie-parser");
 const cors = require("cors");
 const http = require("http");
+const nodemailer = require("nodemailer");
 const socket = require("./socket");
 const path = require("path");
 
@@ -45,8 +46,44 @@ app.use("/friendship", require("./routers/friendshipRouter")); // Barátságokho
 app.get("/", (req, res) => {
   res.status(200).send({ message: "SERVER RESPONSE OK" }); // Egyszerű válasz az alapértelmezett GET kérésre
 });
+//Hibabejelentő végpont
+app.post("/api/report-bug", async (req, res) => {
+  const { email, description } = req.body; //beérkező adatok
+  //Adatok ellenőrzése
+  if (!email || !description) {
+    return res.status(400).json({ error: "Hiányzó mezők." });
+  }
+  //email elküldése a szerver email-re
+  try {
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: `"Hibajelentő" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER,
+      subject: "Új hibajelentés érkezett",
+      html: `
+        <h3>Bejelentő: ${email}</h3>
+        <p><strong>Leírás:</strong></p>
+        <pre>${description}</pre>
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+    res.status(200).json({ message: "Sikeresen elküldve" });
+  } catch (err) {
+    console.error("Hiba az email küldésnél:", err);
+    res.status(500).json({ error: "Sikertelen küldés" });
+  }
+});
 
 app.use(express.static(path.join(__dirname, "client/build")));
+//buildeléshez szükséges
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build/index.html"));
 });

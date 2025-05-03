@@ -38,7 +38,7 @@ const Router: React.FC = () => {
 
   if (loading) return <p>Loading...</p>;
   if (consent === null) return <p>Loading...</p>; // Prevent rendering until consent status is loaded
-
+  console.log(consent);
   const router = createBrowserRouter([
     {
       path: "/",
@@ -87,6 +87,7 @@ const Router: React.FC = () => {
         loggedIn && consent
           ? [
               { index: true, element: <MainPage /> },
+              { path: "cookie", element: <CookiePolicy /> },
               { path: "taskComplete", element: <TaskCounterPage /> },
               {
                 path: "taskManager",
