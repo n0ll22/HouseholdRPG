@@ -39,7 +39,7 @@ const Sidebar: React.FC<Props> = ({ setInteracted }) => {
           }}
         >
           <h1 className="text-2xl font-bold text-gray-100">Household</h1>
-          <h1 className="text-5xl font-bold text-red-500">D&D</h1>
+          <h1 className="text-5xl font-bold text-red-500">RPG</h1>
         </div>
       </div>
 
